@@ -180,7 +180,7 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
     device/htc/pico/prebuilt/lib/libqc-opt.so:system/lib/libqc-opt.so \
     vendor/htc/pico/lib/libhtc_ril.so:system/lib/libhtc_ril.so \
-    vendor/htc/pico/lib/libreference-ril.so:system/lib/libreference-ril.so \
+    vendor/htc/pico/proprietary/lib/libreference-ril.so:system/lib/libreference-ril.so \
     device/htc/pico/prebuilt/lib/libril.so:system/lib/libril.so
     
 # Audio DSP Profiles
@@ -213,6 +213,10 @@ PRODUCT_COPY_FILES += \
     device/htc/pico/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/htc/pico/prebuilt/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl
     
+# Boot Animation
+PRODUCT_COPY_FILES += \
+    vendor/aokp/prebuilt/bootanimation/bootanimation_320_480.zip:system/media/bootanimation.zip
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.locationfeatures=1 \
     ro.com.google.networklocation=1 \
@@ -222,7 +226,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=false \
     persist.sys.use_dithering=2 \
     ro.vold.umsdirtyratio=50
-
+    ro.config.ringtone=Pyxis.ogg \
+    ro.config.notification_sound=Helium.ogg \
+    ro.config.alarm_alert=Cesium.ogg \
+    
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
