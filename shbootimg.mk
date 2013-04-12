@@ -25,7 +25,7 @@ $(uncompressed_ramdisk): $(INSTALLED_RAMDISK_TARGET)
 $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(recovery_uncompressed_ramdisk) $(INSTALLED_RAMDISK_TARGET) $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES)
 	$(call pretty,"Boot image: $@")
     
-$(hide) cat $(PRODUCT_OUT)/ramdisk.cpio | /usr/bin/lzma > $(PRODUCT_OUT)/ramdisk.fs
+$(hide) cat $(PRODUCT_OUT)/ramdisk.cpio | lzma > $(PRODUCT_OUT)/ramdisk.fs
 
 TARGET_KERNEL_BINARIES: $(KERNEL_OUT) $(KERNEL_CONFIG) $(KERNEL_HEADERS_INSTALL) $(recovery_uncompressed_ramdisk) $(uncompressed_ramdisk)
 	$(MAKE) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(TARGET_ARCH) $(ARM_CROSS_COMPILE) $(TARGET_PREBUILT_INT_KERNEL_TYPE)
